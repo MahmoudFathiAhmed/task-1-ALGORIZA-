@@ -51,33 +51,27 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //skip
-              Expanded(
-                flex: 1,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(),
-                    DefaultButton(
-                      backgroundColor: AppColors.offWhite,
-                      borderRadius: 25,
-                      text: 'Skip',
-                      onclick: () {},
-                      textColor: AppColors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                      height: MediaQuery.of(context).size.height * 0.05,
-                      width: 80,
-                    ),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(),
+                  DefaultButton(
+                    backgroundColor: AppColors.offWhite,
+                    borderRadius: 25,
+                    text: 'Skip',
+                    onclick: () {},
+                    textColor: AppColors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15,
+                    height: 50,
+                    width: 80,
+                  ),
+                ],
               ),
               //logo
-              Expanded(
-                flex: 2,
-                  child: Image.asset(AppImages.appLogo, width: 120,)),
+              Image.asset(AppImages.appLogo, width: 120,),
               //page view
               Expanded(
-                flex: 10,
                 child: PageView(
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
@@ -106,57 +100,49 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ],
                 ),
               ),
+              const SizedBox(height: 24,),
               //indicator
-              Expanded(
-                flex:1,
-                child: Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: _buildPageIndicator(),
                 ),
-              ),
-              // SizedBox(height: MediaQuery.of(context).size.height * 0.00000000001,),
+              const SizedBox(height: 24,),
               //get started
-              Expanded(
-                flex:1,
-                child: DefaultButton(
-                    backgroundColor: AppColors.paleGreen,
-                    text: 'Get Started',
-                    textColor: AppColors.white,
-                    fontSize: 18,
-                    onclick: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> LoginScreen()));
-                    },
-                    borderRadius: 10,
-                  height: MediaQuery.of(context).size.height * 0.05,
-                  fontWeight: FontWeight.w600,
-                ),
+              DefaultButton(
+                  backgroundColor: AppColors.paleGreen,
+                  text: 'Get Started',
+                  textColor: AppColors.white,
+                  fontSize: 18,
+                  onclick: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> LoginScreen()));
+                  },
+                  borderRadius: 10,
+                height: 50,
+                fontWeight: FontWeight.w600,
               ),
+              const SizedBox(height: 24,),
               //sign up
-              Expanded(
-                flex: 1,
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      DefaultText(
-                        text: 'Don\'t have an account?',
-                        color: AppColors.black,
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    DefaultText(
+                      text: 'Don\'t have an account?',
+                      color: AppColors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      textAlign: TextAlign.center,
+                    ),
+                    DefaultTextButton(
+                        onClick: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> RegisterScreen()));
+                        },
+                        text: 'Sign Up',
+                        color: AppColors.paleGreen,
                         fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        textAlign: TextAlign.center,
-                      ),
-                      DefaultTextButton(
-                          onClick: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> RegisterScreen()));
-                          },
-                          text: 'Sign Up',
-                          color: AppColors.paleGreen,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                      ),
-                    ],
-                  ),
-              ),
-
+                        fontWeight: FontWeight.bold,
+                    ),
+                  ],
+                ),
             ],
           ),
         ),

@@ -14,33 +14,24 @@ class SliderContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-          flex: 4,
           child: Image.asset(
             image,
-            // height:  MediaQuery.of(context).size.height * 0.55,//320
             width: 320,),
         ),
-        Expanded(
-          flex: 2,
-          child: Column(
-            children: [
-              DefaultText(
-                text: title,
-                color: AppColors.black,
-                fontSize: 26,
-                fontWeight: FontWeight.w600,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 10,),
-              DefaultText(
-                text: subtitle,
-                color: AppColors.darkGrey,
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
+        DefaultText(
+          text: title,
+          color: AppColors.black,
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 10,),
+        DefaultText(
+          text: subtitle,
+          color: AppColors.darkGrey,
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          textAlign: TextAlign.center,
         ),
       ],
     );
